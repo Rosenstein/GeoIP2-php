@@ -11,4 +11,5 @@
 /phar-stub.php export-ignore
 /phpstan.neon export-ignore
 /phpunit.xml.dist export-ignore
+/CLAUDE.md export-ignore
 /README.dev.md export-ignore
