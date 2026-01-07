@@ -72,7 +72,7 @@ class City extends Country
         $this->location = new Location($raw['location'] ?? []);
         $this->postal = new Postal($raw['postal'] ?? []);
 
-        if (!isset($raw['subdivisions'])) {
+        if (empty($raw['subdivisions'])) {
             $this->subdivisions = [];
             $this->mostSpecificSubdivision
                     = new Subdivision([], $locales);
