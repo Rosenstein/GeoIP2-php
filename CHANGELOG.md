@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+3.3.1 (unreleased)
+------------------
+
+* Updated the `GeoIp2\Model\City` constructor to handle an empty
+  `subdivisions` array. This provides compatibility with some third-party
+  databases that publish empty subdivisions arrays. Pull request by Jarek
+  Jakubowski. GitHub #290.
+
 3.3.0 (2025-11-20)
 ------------------
 
