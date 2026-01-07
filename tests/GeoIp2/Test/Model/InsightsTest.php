@@ -497,4 +497,24 @@ class InsightsTest extends TestCase
             'mostSpecificSubdivision is set even on an empty response'
         );
     }
+
+    // We do not expect well-formed databases from MaxMind to have empty
+    // subdivisions arrays, but we support it due to encountering a third-party
+    // database that had them.
+    public function testEmptySubdivisionsArray(): void
+    {
+        $raw = [
+            'subdivisions' => [],
+            'traits' => ['ip_address' => '1.1.1.1'],
+        ];
+
+        $model = new Insights($raw, ['en']);
+
+        $this->assertCount(0, $model->subdivisions);
+
+        $this->assertInstanceOf(
+            'GeoIp2\Record\Subdivision',
+            $model->mostSpecificSubdivision
+        );
+    }
 }
